@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const port = 3001;
+const port = 8001;
 const { connectToMongoDB } = require('./connect');
 const urlRoute = require('./routes/url');
 const URL = require('./models/url');
 
-connectToMongoDB("mongodb+srv://vaibhavtalkhande41:n96q.ETi:Jx_cy7@cluster0.nekfshl.mongodb.net/?retryWrites=true&w=majority").then(
+connectToMongoDB("mongodb+srv://vaibhavtalkhande41:WrRaWwdE7o0KpGmT@cluster0.nekfshl.mongodb.net/?retryWrites=true&w=majority").then(
     () => console.log("Mongodb connected")
 );
 
@@ -33,6 +33,8 @@ app.get('/:shortId', async (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+    console.log(`Server listening on port ${port}` 
+    );
+    console.log(`http://localhost:${port}`);
     }
 );
