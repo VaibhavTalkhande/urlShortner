@@ -41,7 +41,7 @@ app.get('/profile', requiresAuth(), (req, res) => {
      res.send(JSON.stringify(req.oidc.user, null, 2));
    });
 app.get('/test',requiresAuth(),async(req, res) => {
-    const allUrls = await URL.find({});
+    const allUrls = await URL.find({ createdBy: req.oidc.user.name});
     const user = req.oidc.user;
     
     res.render("home", { urls: allUrls ,user:user});
@@ -61,7 +61,7 @@ app.get('/url/:shortId', async (req, res) => {
                 visitHistory: {
                     timestamp: Date.now(),
                 },
-                createdBy: req.oidc.user.name,
+
             },
         }
 

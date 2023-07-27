@@ -11,10 +11,10 @@ async function handleGenerateNewShortURL(req, res) {
     shortId: shortID,
     redirectURL: body.url,
     visitHistory: [],
+    createdBy: req.oidc.user.name,
   });
   return res.redirect("/test");
 
-  return res.json({ id: shortID });
 }
 
 async function handleGetAnalytics(req, res) {

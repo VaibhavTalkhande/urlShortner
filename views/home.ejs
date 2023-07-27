@@ -79,7 +79,7 @@
         <input type="text" name="url" placeholder="Enter URL" required>
         <button type="submit">Shorten</button>
     </form>
-    <h1><%= user.name %></h1>
+    <h1>URLs</h1>
     <table>
         <thead>
             <tr>
@@ -88,6 +88,7 @@
                 <th>Clicks</th>
                 <th>Created At</th>
                 <th>Updated At</th>
+                <th>Delete</th>
 
             </tr>
         </thead>
@@ -96,11 +97,15 @@
                 %>
                 <tbody>
                     <tr>
-                        <td><a href="<%= url.redirectURL %>"><%= url.shortId %></a></td>
+                        <td><%= url.shortId %><br>
+                        <a href="/url/<%= url.shortId %>">Click Here</a>
+                        </td>
                         <td><%= url.redirectURL %></td>
                         <td><%= url.visitHistory.length %></td>
                         <td><%= url.createdAt %></td>
                         <td><%= url.updatedAt %></td>
+                        <td><a href="/url/<%= url.shortId %>/delete">Delete</a></td>
+
                     </tr>
                 </tbody>
             
